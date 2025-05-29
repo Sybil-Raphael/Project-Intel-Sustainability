@@ -1,1 +1,188 @@
 /* Add your CSS here */
+
+/* Intel-branded header background and layout */
+.intel-header {
+  /* Remove blue background */
+  background-color: unset;
+  /* Use your background image */
+  background-image: url('img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Add some space above and below the header */
+  padding: 40px 0;
+  /* Make text easier to read on blue */
+  color: white;
+}
+
+/* Center the header content */
+.header-content {
+  /* Center everything horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Add some space around the content */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Style the Intel logo */
+.intel-logo {
+  /* Set a reasonable width for the logo */
+  width: 120px;
+  /* Add some space below the logo */
+  margin-bottom: 20px;
+}
+
+/* Style the main headline */
+.header-title {
+  /* Make the headline bold and large */
+  font-size: 2.5em;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-align: center;
+  /* Use a clean, modern font */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the subheading/description */
+.header-subtitle {
+  /* Slightly smaller text */
+  font-size: 1.2em;
+  margin: 0;
+  text-align: center;
+  /* Use a lighter font weight */
+  font-weight: 300;
+  /* Add a little transparency for a softer look */
+  color: rgba(255,255,255,0.9);
+}
+
+/* Timeline container styles */
+.timeline-container {
+  /* Add some space above and below the timeline */
+  margin: 40px 0;
+  /* Add horizontal padding */
+  padding: 0 10px;
+}
+
+/* Timeline cards wrapper */
+.timeline-cards {
+  /* Use flexbox to arrange cards in a row */
+  display: flex;
+  flex-direction: row;
+  /* Enable horizontal scroll on large screens */
+  overflow-x: auto;
+  /* Add some space below the cards */
+  padding-bottom: 20px;
+  /* Hide scrollbar for a cleaner look (optional for beginners) */
+  scrollbar-width: thin;
+  scrollbar-color: #0071c5 #e0e0e0;
+  /* Make sure the timeline-cards wrapper doesn't wrap cards to a new line */
+  flex-wrap: nowrap; /* Prevent wrapping so cards scroll horizontally */
+  /* Enable scroll snap for smooth horizontal navigation */
+  scroll-snap-type: x mandatory;
+}
+
+/* Each timeline card */
+.timeline-card {
+  /* Set a fixed width for each card */
+  width: 250px;
+  /* Show 4 cards at a time on large screens */
+  width: 23%;
+  min-width: 220px;
+  max-width: 340px;
+  /* Add some space between cards */
+  margin-right: 20px;
+  /* Add a simple border and background */
+  background: #f5f7fa;
+  border: 1px solid #d1e0ee;
+  border-radius: 10px;
+  /* Add some padding inside the card */
+  padding: 16px;
+  /* Add a little shadow for depth */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  /* Make sure content doesn't overflow */
+  box-sizing: border-box;
+  /* Add a smooth transition for hover effect */
+  transition: transform 0.2s;
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden;
+  /* Make each card snap to the start of the scroll area */
+  scroll-snap-align: start;
+}
+
+/* Last card should not have extra margin */
+.timeline-card:last-child {
+  margin-right: 0;
+}
+
+/* Simple hover effect for cards */
+.timeline-card:hover {
+  /* Slightly lift the card */
+  transform: translateY(-5px) scale(1.03);
+  /* Add a blue border on hover */
+  border-color: #0071c5;
+}
+
+/* Make sure images inside timeline cards fit the card and do not overflow */
+.timeline-card img {
+  /* Image will not be wider than the card */
+  max-width: 100%;
+  /* Image will scale down if needed */
+  height: auto;
+  /* Add some space below the image */
+  display: block;
+  margin-bottom: 12px;
+  /* Rounded corners for a softer look */
+  border-radius: 6px;
+}
+
+/* Overlay for details */
+.timeline-card p {
+  /* Position overlay to cover the card */
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #1967d2; /* Intel blue overlay */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  padding: 18px;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+/* Show overlay on hover */
+.timeline-card:hover p {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive: Show 2 cards at a time on medium screens, stack on small screens */
+@media (max-width: 900px) {
+  .timeline-card {
+    width: 48%; /* Show 2 cards at a time */
+  }
+}
+@media (max-width: 700px) {
+  .timeline-cards {
+    /* Stack cards in a column */
+    flex-direction: column;
+    /* Remove horizontal scroll */
+    overflow-x: visible;
+  }
+  .timeline-card {
+    /* Full width on small screens */
+    width: 100%;
+    /* Add space below each card */
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .timeline-card:last-child {
+    margin-bottom: 0;
+  }
+}
