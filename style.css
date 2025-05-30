@@ -13,6 +13,7 @@
   padding: 40px 0;
   /* Make text easier to read on blue */
   color: white;
+  min-height: 340px; /* Make the background area taller */
 }
 
 /* Center the header content */
@@ -67,20 +68,19 @@
 
 /* Timeline cards wrapper */
 .timeline-cards {
-  /* Use flexbox to arrange cards in a row */
   display: flex;
   flex-direction: row;
-  /* Enable horizontal scroll on large screens */
+  justify-content: flex-start;
+  align-items: flex-start;
   overflow-x: auto;
-  /* Add some space below the cards */
-  padding-bottom: 20px;
-  /* Hide scrollbar for a cleaner look (optional for beginners) */
+  padding: 0 10px 20px 10px; /* horizontal padding keeps it centered visually */
   scrollbar-width: thin;
   scrollbar-color: #0071c5 #e0e0e0;
-  /* Make sure the timeline-cards wrapper doesn't wrap cards to a new line */
-  flex-wrap: nowrap; /* Prevent wrapping so cards scroll horizontally */
-  /* Enable scroll snap for smooth horizontal navigation */
+  flex-wrap: nowrap;
   scroll-snap-type: x mandatory;
+  margin: 0 auto;          /* scrollbar centered on the page */
+  max-width: 1000px;       
+  gap: 20px;
 }
 
 /* Each timeline card */
@@ -142,18 +142,26 @@
   /* Position overlay to cover the card */
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #1967d2; /* Intel blue overlay */
+  width: 100%;
+  height: 100%;
+  /* Overlay covers the whole card */
+  background: rgba(25, 55, 110, 0.92);
   color: #fff;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
+  align-items: center;      /* Center vertically */
+  justify-content: center;  /* Center horizontally */
+  text-align: center;       /* Center text */
   opacity: 0;
   pointer-events: none;
-  padding: 18px;
+  padding: 24px 18px;
   border-radius: 10px;
   transition: opacity 0.3s;
   z-index: 2;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  backdrop-filter: blur(1px);
+  box-sizing: border-box;   /* Ensure padding fits inside card */
 }
 
 /* Show overlay on hover */
