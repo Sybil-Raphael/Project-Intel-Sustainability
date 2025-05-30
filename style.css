@@ -194,3 +194,14 @@
     margin-bottom: 0;
   }
 }
+
+/* Center the instruction text at the bottom of the page */
+body > p {
+  text-align: center;
+  margin: 24px auto 0 auto;
+  font-size: 1.1em;
+  color: #222b3a;
+  max-width: 100%;
+  /* Optional: add a little spacing for clarity */
+  letter-spacing: 0.2px;
+}
