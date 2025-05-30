@@ -124,17 +124,14 @@
   border-color: #0071c5;
 }
 
-/* Make sure images inside timeline cards fit the card and do not overflow */
+/* Make all timeline card images the same size */
 .timeline-card img {
-  /* Image will not be wider than the card */
-  max-width: 100%;
-  /* Image will scale down if needed */
-  height: auto;
-  /* Add some space below the image */
+  width: 100%;           /* Image fills the card width */
+  height: 120px;         /* All images have the same height */
+  object-fit: cover;     /* Crop images to fill the area without stretching */
+  border-radius: 6px;    /* Rounded corners for a softer look */
+  margin-bottom: 12px;   /* Space below the image */
   display: block;
-  margin-bottom: 12px;
-  /* Rounded corners for a softer look */
-  border-radius: 6px;
 }
 
 /* Overlay for details */
